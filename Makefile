@@ -1,4 +1,4 @@
-SOURCE_DOCS := $(patsubst %.md,%.html,$(wildcard *.md */*.md */*/*.md))
+SOURCE_DOCS := $(patsubst %.md,%.html,$(wildcard */*.md */*/*.md *.md))
 
 EXPORTED_DOCS=\
  $(SOURCE_DOCS:.md=.html)
@@ -7,7 +7,9 @@ RM=/bin/rm
 
 PANDOC=pandoc
 
-PANDOC_OPTIONS=--smart --standalone --to html5 --mathjax
+PANDOC_OPTIONS=--smart --standalone \
+	       --to html5 --mathjax \
+	       -c ~/labbook_core/github-pandoc.css
 
 # Pattern-matching Rules
 

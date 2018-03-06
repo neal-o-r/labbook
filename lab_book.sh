@@ -24,6 +24,10 @@ if [[ ! -f $filename ]]; then
 mkdir -p $dir$year/$month_no/
 touch $filename
 
+cp -n github-pandoc.css $dir/github-pandoc.css
+cp -n github-pandoc.css $dir$year/$month_no/github-pandoc.css
+
+
 # add header
 echo "---
 title: "$title"
@@ -31,7 +35,7 @@ author: "$author"
 date: "$date_str"
 ---
 
-[Home]($dir/index.html)
+[Home](${dir}index.html)
 
 ---" > $filename
 
